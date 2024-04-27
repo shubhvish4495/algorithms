@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// leetcode problem link  -> https://leetcode.com/problems/pascals-triangle/description/
+
 func main() {
 	a := make([][]int, 0)
 	numRows := 5
