@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/shubhvish4495/algorithms/helper"
+)
 
 type Heap struct {
 	Arr  []int
@@ -98,13 +102,12 @@ func (h *Heap) Delete(index int) {
 		h.Heapify(parentIndx)
 	}
 
-	if leftChildIndx < h.Size && h.Arr[leftChildIndx] < h.Arr[index] {
+	if (leftChildIndx < h.Size) && !(h.Arr[leftChildIndx] < h.Arr[index]) {
 		h.Arr[leftChildIndx], h.Arr[index] = h.Arr[index], h.Arr[leftChildIndx]
 		h.downHeap(leftChildIndx)
-		return
 	}
 
-	if rightChildIndx < h.Size && h.Arr[rightChildIndx] < h.Arr[index] {
+	if (rightChildIndx < h.Size) && !(h.Arr[rightChildIndx] < h.Arr[index]) {
 		h.Arr[rightChildIndx], h.Arr[index] = h.Arr[index], h.Arr[rightChildIndx]
 		h.downHeap(rightChildIndx)
 	}
@@ -123,7 +126,22 @@ func main() {
 	h.Insert(6)
 
 	h.Print()
-	h.Delete(3)
+
+	h2 := helper.GetNewHeap()
+	h2.Insert(9)
+	h2.Insert(10)
+	h2.Insert(7)
+	h2.Insert(4)
+	h2.Insert(3)
+	h2.Insert(5)
+	h2.Insert(6)
 	h.Print()
+
+	fmt.Println("**** Now delete ****")
+	h.Delete(0)
+	h.Print()
+
+	h2.Delete(0)
+	h2.Print()
 
 }

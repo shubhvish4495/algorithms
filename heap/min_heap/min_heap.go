@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/shubhvish4495/algorithms/helper"
+)
 
 type MinHeap struct {
 	Arr  []int
@@ -50,7 +54,21 @@ func main() {
 	h.Insert(7)
 	h.Insert(3)
 	h.Insert(89)
+	h.Insert(6)
 
 	h.Print()
+
+	h2 := helper.GetNewMinHeap(6)
+	h2.Insert(10)
+	h2.Insert(1)
+	h2.Insert(7)
+	h2.Insert(3)
+	h2.Insert(89)
+	h2.Insert(6)
+
+	h2.Print()
+
+	h2.Delete(3)
+	h2.Print()
 
 }
